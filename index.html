@@ -3,25 +3,42 @@
   <head>
     <script src="jquery.js"></script>
     <script src="data_generator.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Pacifico&display=swap" rel="stylesheet">
   </head>
   <body>
     <script>
 
       $(document).ready(function(){
-        var $body = $('body');
-        $body.html('');
+        $("#tweetsection").html('');
 
         var index = streams.home.length - 1;
         while(index >= 0){
           var tweet = streams.home[index];
-          var $tweet = $('<div></div>');
+          var $tweet = $('');
           $tweet.text('@' + tweet.user + ': ' + tweet.message);
-          $tweet.appendTo($body);
+          $tweet.appendTo("#tweetsection");
           index -= 1;
         }
 
       });
 
     </script>
+
+    <main>
+
+      <div class="grid">
+        <div class="logo">
+          <p id="biglogo"> &#128077; </p>
+          <br>
+          <p id="twiddlertitle"> Twiddler </p>
+        </div>
+        <div class="tweetsection">Tweets go here</div>
+        <div class="empty"></div>
+      </div>
+
+    </main>
+
   </body>
 </html>
