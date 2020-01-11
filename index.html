@@ -4,22 +4,54 @@
     <script src="jquery.js"></script>
     <script src="data_generator.js"></script>
     <link rel="stylesheet" type="text/css" href="style.css" />
-    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
   </head>
   <body>
     <script>
 
       $(document).ready(function(){
-        $("#tweetsection").html('');
 
-        var index = streams.home.length - 1;
-        while(index >= 0){
+
+        function refreshTweets() {
+          var newlength = streams.home.length - 1;
+          while(index <= newlength){
+            var tweet = streams.home[index];
+            var $tweet = $("<p></p>");
+            $tweet.html('<h6 class="author">@' + tweet.user + '</h6><h6 class="posted"> &#8226; ' + tweet.created_at + '</h6><br><br>' + tweet.message);
+            $tweet.prependTo(".tweetsection");
+            index += 1;
+          }
+        }
+
+
+        $("button").click(function(){
+          alert("The button was clicked.");
+        });
+
+
+        var $home = $("<p></p>");
+        $home.html("<h5 id='home'>Home<h6>");
+        $home.appendTo(".tweetsection");
+
+
+        var $reload = $("<h5></h5>");
+        $reload.html("<button id='reload'>&#8635</button>");
+        $reload.appendTo(".tweetsection");
+
+        $("#reload").click(function(){
+          refreshTweets();
+        });
+
+
+        var index = 0;
+
+        while(index <= streams.home.length - 1){
           var tweet = streams.home[index];
-          var $tweet = $('');
-          $tweet.text('@' + tweet.user + ': ' + tweet.message);
-          $tweet.appendTo("#tweetsection");
-          index -= 1;
+          var $tweet = $("<p></p>");
+          $tweet.html('<h6 class="author">@' + tweet.user + '</h6><h6 class="posted"> &#8226; ' + tweet.created_at + '</h6><br><br>' + tweet.message);
+          $tweet.appendTo(".tweetsection");
+          index += 1;
         }
 
       });
@@ -30,11 +62,11 @@
 
       <div class="grid">
         <div class="logo">
-          <p id="biglogo"> &#128077; </p>
+          <div id="biglogo"> &#128077; </div>
           <br>
-          <p id="twiddlertitle"> Twiddler </p>
+          <div id="twiddlertitle"> Twiddler </div>
         </div>
-        <div class="tweetsection">Tweets go here</div>
+        <div class="tweetsection"></div>
         <div class="empty"></div>
       </div>
 

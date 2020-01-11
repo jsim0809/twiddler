@@ -53,14 +53,23 @@ body {
 	background-color: #16202a;
 	color: #fafbfc;
 	font-family: "Roboto", sans-serif;
-	line-height: 19.6875px;
-	margin-top: 80px;
+	font-size: 15px;
+	line-height: 20px;
+	margin-top: 40px;
+}
+
+p {
+	border-bottom: 1px #38434d solid;
+	padding: 15px;
+}
+
+h6 {
+	display: inline;
 }
 
 .grid {
 
   display: grid;
-  height: 1000px;
   grid-template: 100% / 360px 900px 540px;
 }
 
@@ -84,4 +93,36 @@ body {
 
 .tweetsection {
   border-right: 1px #38434d solid;
+  border-top: 1px #38434d solid;
 }
+
+#home {
+	font-size: 20px;
+	font-weight: 700;
+}
+
+button {
+  background-color: #253340;
+  border: none;
+  color: white;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  font-size: 22px;
+  cursor: pointer;
+  text-align: center;
+  margin: 0;
+  width: 100%;
+}
+
+button:hover {
+  background-color: #9d7100;
+}
+
+.author {
+	font-weight: 700;
+}
+
+.posted {
+	color: #8899a6;
+}
+
