@@ -132,6 +132,11 @@ button:hover {
 
 .author {
 	font-weight: 700;
+	cursor: pointer;
+}
+
+.author:hover {
+	text-decoration: underline;
 }
 
 .posted {

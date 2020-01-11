@@ -24,6 +24,20 @@
           }
         }
 
+        function userTimeline(handle) {
+          $(".tweet").remove();
+          var userIndex = 0;
+          while(userIndex <= streams.home.length - 1){
+            var userTweet = streams.home[userIndex];
+            var userHandle = "@"+userTweet.user;
+            if( userHandle.toString() === handle.toString()){
+              var $userTweet = $("<p class='tweet'></p>");
+              $userTweet.html('<h6 class="author">@' + userTweet.user + '</h6><h6 class="posted"> &#8226; ' + userTweet.created_at + '</h6><br><br>' + userTweet.message);
+              $userTweet.prependTo(".tweetsection");
+            }
+            userIndex += 1;
+          }
+        }
 
         var $home = $("<p></p>");
         $home.html("<h5 id='home'>Home<h6>");
@@ -45,11 +59,19 @@
           var tweet = streams.home[index];
           var $tweet = $("<p class='tweet'></p>");
           $tweet.html('<h6 class="author">@' + tweet.user + '</h6><h6 class="posted"> &#8226; ' + tweet.created_at + '</h6><br><br>' + tweet.message);
-          $tweet.appendTo(".tweetsection");
+          $tweet.prependTo(".tweetsection");
           index += 1;
         }
 
+        $(document).on('click', '.author', function () {
+            var authorname =  $(this).text();
+            userTimeline(authorname);
+        });
+
       });
+
+
+
 
     </script>
 
