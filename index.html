@@ -17,7 +17,7 @@
           var newlength = streams.home.length - 1;
           while(index <= newlength){
             var tweet = streams.home[index];
-            var $tweet = $("<p></p>");
+            var $tweet = $("<p class='tweet'></p>");
             $tweet.html('<h6 class="author">@' + tweet.user + '</h6><h6 class="posted"> &#8226; ' + tweet.created_at + '</h6><br><br>' + tweet.message);
             $tweet.prependTo(".tweetsection");
             index += 1;
@@ -25,19 +25,14 @@
         }
 
 
-        $("button").click(function(){
-          alert("The button was clicked.");
-        });
-
-
         var $home = $("<p></p>");
         $home.html("<h5 id='home'>Home<h6>");
-        $home.appendTo(".tweetsection");
+        $home.appendTo(".home");
 
 
         var $reload = $("<h5></h5>");
         $reload.html("<button id='reload'>&#8635</button>");
-        $reload.appendTo(".tweetsection");
+        $reload.appendTo(".home");
 
         $("#reload").click(function(){
           refreshTweets();
@@ -48,7 +43,7 @@
 
         while(index <= streams.home.length - 1){
           var tweet = streams.home[index];
-          var $tweet = $("<p></p>");
+          var $tweet = $("<p class='tweet'></p>");
           $tweet.html('<h6 class="author">@' + tweet.user + '</h6><h6 class="posted"> &#8226; ' + tweet.created_at + '</h6><br><br>' + tweet.message);
           $tweet.appendTo(".tweetsection");
           index += 1;
@@ -66,8 +61,9 @@
           <br>
           <div id="twiddlertitle"> Twiddler </div>
         </div>
-        <div class="tweetsection"></div>
+        <div class="home"></div>
         <div class="empty"></div>
+        <div class="tweetsection"></div>
       </div>
 
     </main>
