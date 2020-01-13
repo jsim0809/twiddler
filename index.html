@@ -14,8 +14,9 @@
 
 
         function refreshTweets() {
-          var newlength = streams.home.length - 1;
-          while(index <= newlength){
+          $(".tweet").remove();
+          index = 0;
+          while(index <= streams.home.length - 1){
             var tweet = streams.home[index];
             var $tweet = $("<p class='tweet'></p>");
             $tweet.html('<h6 class="author">@' + tweet.user + '</h6><h6 class="posted"> &#8226; ' + tweet.created_at + '</h6><br><br>' + tweet.message);
