@@ -11,4 +11,4 @@ This is a mockup of a social media feed, modeled on [Twitter](http://www.twitter
 
 ## Screenshots
 
-![Twiddler screenshot](https://imgur.com/IepCsdI)
+![Twiddler screenshot](https://i.imgur.com/IepCsdI.png)
